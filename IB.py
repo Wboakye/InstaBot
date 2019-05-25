@@ -48,6 +48,10 @@ class InstagramBot:
         hrefs = driver.find_elements_by_tag_name('a')
         pic_hrefs = [elem.get_attribute('href') for elem in hrefs]
         #pic_hrefs = [href for href in pic_hrefs if hashtag in href]
+        #removing footer hrefs
+        pic_hrefs.reverse()
+        del pic_hrefs[0:13]
+        pic_hrefs.reverse()
         print("Number of posts: " + str(len(pic_hrefs)) + ". Likes iniciated.")
         count = len(pic_hrefs)
 
@@ -77,6 +81,10 @@ class InstagramBot:
         hrefs = driver.find_elements_by_tag_name('a')
         pic_hrefs = [elem.get_attribute('href') for elem in hrefs]
         #pic_hrefs = [href for href in pic_hrefs if hashtag in href]
+        #removing footer hrefs
+        pic_hrefs.reverse()
+        del pic_hrefs[0:13]
+        pic_hrefs.reverse()
         print("Number of posts: " + str(len(pic_hrefs)) + ". Following iniciated.")
         count = len(pic_hrefs)
 
@@ -106,6 +114,10 @@ class InstagramBot:
         hrefs = driver.find_elements_by_tag_name('a')
         pic_hrefs = [elem.get_attribute('href') for elem in hrefs]
         #pic_hrefs = [href for href in pic_hrefs if hashtag in href] //Not working
+        #removing footer hrefs
+        pic_hrefs.reverse()
+        del pic_hrefs[0:13]
+        pic_hrefs.reverse()
         print("Number of posts: " + str(len(pic_hrefs)) + ". Following iniciated.")
         count = len(pic_hrefs)
 
