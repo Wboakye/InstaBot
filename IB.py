@@ -5,7 +5,9 @@ import time
 UN = str(input("Type Username: "))
 PW = str(input("Type Password: "))
 print("Input 5 hashtags")
-hashtags = [str(input(), str(input(), str(input(), str(input(), str(input()]
+hashtags = [str(input("#")), str(input("#")), str(input("#")), str(input("#")), str(input("#"))]
+print("Initiating...")
+
 
 class InstagramBot:
     def  __init__(self, username, password):
