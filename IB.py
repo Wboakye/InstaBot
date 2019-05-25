@@ -84,12 +84,11 @@ class InstagramBot:
             driver.get(pic_href)
             #driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
             try:
-                driver.find_element_by_class_name("FPmhX").click()
                 time.sleep(2)
-                driver.find_element_by_class_name("vBF20").click()
+                driver.find_element_by_class_name("oW_lN").click()
                 count = count - 1
                 print(str(count) + "/" + str(len(pic_hrefs)) + " remaining.")
-                time.sleep(20)
+                time.sleep(18)
             except Exception as e:
                 time.sleep(2)
 
@@ -116,7 +115,7 @@ class InstagramBot:
                 time.sleep(2)
                 #like
                 driver.find_element_by_class_name("dCJp8").click()
-                time.sleep(20)
+                time.sleep(1)
                 #follow
                 driver.find_element_by_class_name("oW_lN").click()
                 count = count - 1
