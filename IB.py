@@ -4,6 +4,8 @@ import time
 
 UN = str(input("Type Username: "))
 PW = str(input("Type Password: "))
+print("Input 5 hashtags")
+hashtags = [str(input(), str(input(), str(input(), str(input(), str(input()]
 
 class InstagramBot:
     def  __init__(self, username, password):
@@ -31,22 +33,26 @@ class InstagramBot:
     
     def like_photos(self, hashtag):
         driver = self.driver
+        print("Gathering posts for #" + hashtag + ".")
         driver.get("https://www.instagram.com/explore/tags/"+ hashtag +"/")
         time.sleep(3)
-        for i in range(1, 10):
+        for i in range(1, 9):
             driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
             time.sleep(2)
 
         hrefs = driver.find_elements_by_tag_name('a')
         pic_hrefs = [elem.get_attribute('href') for elem in hrefs]
         #pic_hrefs = [href for href in pic_hrefs if hashtag in href]
-        print("Working on " + hashtag + ". Number of photos: " + str(len(pic_hrefs)))
+        print("Number of posts: " + str(len(pic_hrefs)) + ". Likes iniciated.")
+        count = len(pic_hrefs)
 
         for pic_href in pic_hrefs:
             driver.get(pic_href)
             #driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
             try:
                 driver.find_element_by_class_name("dCJp8").click()
+                count = count - 1
+                print(str(count) + "/" + str(len(pic_hrefs)) + " remaining.")
                 time.sleep(20)
             except Exception as e:
                 time.sleep(2)
@@ -54,8 +60,9 @@ class InstagramBot:
 
 targetIG = InstagramBot(UN, PW)
 targetIG.login()
-targetIG.like_photos("puppylovers")
-targetIG.like_photos("puppyoftheday")
-targetIG.like_photos("puppystagram")
-targetIG.like_photos("puppy")
-targetIG.like_photos("puppygram")
+targetIG.like_photos(hashtags[0])
+targetIG.like_photos(hashtags[1])
+targetIG.like_photos(hashtags[2])
+targetIG.like_photos(hashtags[3])
+targetIG.like_photos(hashtags[4])
+targetIG.closeBrowser()
